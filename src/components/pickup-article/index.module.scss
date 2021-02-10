@@ -1,0 +1,37 @@
+.pickup {
+  border: 1.2px solid rgba(135, 135, 135, 0.5);
+  border-radius: 15px;
+  padding: 0 20px 0 20px;
+  margin: 40px 20px 0 20px;
+  h1 {
+    font-weight: 1000;
+    font-size: 16px;
+    color: rgb(233, 163, 163);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(150, 113, 113, 0.5);
+  }
+}
+.article__main {
+  display: flex;
+  margin-top: 20px;
+  // padding: 15px;
+  border-radius: 10px;
+}
+.article__title {
+  flex: 4;
+  margin-right: 5px;
+  p {
+    font-size: 13px;
+  }
+}
+
+.article__time {
+  opacity: 0.5;
+}
+
+.article__img {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  object-fit: cover;
+}
