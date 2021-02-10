@@ -33,22 +33,29 @@ export default function Home(props) {
 
 export const getStaticProps = async () => {
   // NewsAPIのトップ記事の情報を取得
+  const pageSize = 10  //取得する記事の数
   const topRes = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=jp&pageSize=10&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/top-headlines?country=jp&pageSize=${pageSize}&apiKey=あなたのNewsAPIのAPIKey`
   );
   const topJson = await topRes.json();
   const topArticles = topJson?.articles;
 
   // OpenWeatherMapの天気の情報を取得
+  const lat = 35.4122    // 取得したい地域の緯度と経度(今回は東京)
+  const lon = 139.4130
+  const exclude = "hourly,minutely"   // 取得しない情報(1時間ごとの天気情報と1分間ごとの天気情報)
   const weatherRes = await fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=35.4122&lon=139.4130&units=metric&exclude=hourly,minutely&appid=${process.env.WEATHER_API_KEY}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=あなたのOpenWeatherMapのAPIKey`
   );
   const weatherJson = await weatherRes.json();
   const weatherNews = weatherJson;
 
   // NewsAPIのピックアップ記事の情報を取得
+  const keyword = "software"   // キーワードで検索(ソフトウェア)
+  const sortBy = "popularity"  // 表示順位(人気順)
+  const pickupPageSize = 5     // ページサイズ(5)
   const pickupRes = await fetch(
-    `https://newsapi.org/v2/everything?q=software&language=jp&sortBy=popularity&pageSize=5&apiKey=${process.env.NEWS_API_KEY}`
+    `https://newsapi.org/v2/everything?q=${keyword}&language=jp&sortBy=${sortBy}&pageSize=${pickupPageSize}&apiKey=あなたのNewsAPIのAPIKey`
   );
   const pickupJson = await pickupRes.json();
   const pickupArticles = pickupJson?.articles;
