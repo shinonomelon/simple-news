@@ -7,7 +7,6 @@
 今回使用した技術
 - Next.js
 - TypeScript
-- Redux
 - sass
 - moment
 - NewsAPI
